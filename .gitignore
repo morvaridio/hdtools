@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# IDEA Files
+.idea/*
+
+# Twisted files
+_trial_*
+_trial_temp/
