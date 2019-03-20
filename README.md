@@ -1,4 +1,4 @@
-# hdtools
+# hdtools [![Build Status](https://travis-ci.org/morvaridio/hdtools.svg?branch=master)](https://travis-ci.org/morvaridio/hdtools)
 HD Tools for cyrptocurrencies like BTC, and BTCt
 base on [mcdallas/cryptotools](https://github.com/mcdallas/cryptotools).
 
