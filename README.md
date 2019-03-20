@@ -18,6 +18,11 @@ base on [mcdallas/cryptotools](https://github.com/mcdallas/cryptotools).
     private_key.encode() 
     ```
     
+## How to install
+```bash
+pip install hdtools
+```
+    
 ## Examples
 Create HD Wallets
 ```python
