@@ -124,7 +124,7 @@ class ExtendedKey:
         key = read(33)
         key = PrivateKey(key, network=network) if is_private else PublicKey.decode(key, network=network)
         assert not bts, 'Leftover bytes'
-        return constructor(key, code, depth=depth, i=i, parent=fingerprint, path=path, addresstype=address_lookup[net])
+        return constructor(key, code, depth=depth, i=i, parent=fingerprint, path=path, address_type=address_lookup[net])
 
     @classmethod
     def decode(cls, string: str, network='btc'):
