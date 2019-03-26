@@ -46,3 +46,8 @@ b'39Qn8kHG6h7zv1Fh1iwjjyeRibx7gHTq1Z'
 ```sh
 python3 -m uninttest
 ```
+
+## Run `setup.py`
+```bash
+python setup.py sdist bdist_wheel
+```
