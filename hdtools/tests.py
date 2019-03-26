@@ -41,7 +41,7 @@ class TestKeys(TestCase):
         self.assertEqual(
             PublicKey.from_hex('0250863ad64a87ae8a2fe83c1af1a8403cb53f53e486d8511dad8a04887e5b2352').to_address(
                 'P2PKH',
-            ).decode(),
+            ),
             '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
         )
 
@@ -49,13 +49,13 @@ class TestKeys(TestCase):
             PublicKey.from_hex('0250863ad64a87ae8a2fe83c1af1a8403cb53f53e486d8511dad8a04887e5b2352').to_address(
                 'P2PKH',
                 compressed=False
-            ).decode(),
+            ),
             '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
         )
 
         self.assertEqual(
             PublicKey.from_hex('03b82761f2482254b93fdf45f26c5d00bd51883fb7cd143080318c5be9746a5f5f').to_address(
-                'P2WPKH-P2SH').decode(),
+                'P2WPKH-P2SH'),
             '33x3UHfxVvJNqd275WG9XprVfepEUeASoj'
         )
 
@@ -106,12 +106,12 @@ class TestExtendedKeys(TestCase):
 
         self.assertEqual(
             (M / 44. / 0. / 0. / 0 / 0).address(),
-            b'1DgEh5Y6NioqaxHBBc2puDYq6SvG5NDsG9'
+            '1DgEh5Y6NioqaxHBBc2puDYq6SvG5NDsG9'
         )
 
         self.assertEqual(
             (M / 49. / 0. / 0. / 0 / 0).address(AddressType.P2WPKH_P2SH.value),
-            b'39Qn8kHG6h7zv1Fh1iwjjyeRibx7gHTq1Z'
+            '39Qn8kHG6h7zv1Fh1iwjjyeRibx7gHTq1Z'
         )
 
         self.assertEqual(

@@ -17,10 +17,10 @@ def legacy_address(public_key: PublicKey, version_byte: bytes) -> str:
     return hashed_payload_to_address(payload)
 
 
-def hashed_payload_to_address(payload):
+def hashed_payload_to_address(payload) -> str:
     checksum = sha256(sha256(payload))[:4]
     address = payload + checksum
-    return b58encode(address)
+    return b58encode(address).decode()
 
 
 def pubkey_to_bech32(public_key: PublicKey, witver: int) -> str:
@@ -34,28 +34,29 @@ def pubkey_to_bech32(public_key: PublicKey, witver: int) -> str:
 
 class Address:
     @staticmethod
-    def from_p2pkh(public_key: PublicKey, compressed=False) -> 'str':
+    def to_p2pkh(public_key: PublicKey, compressed=False) -> 'str':
         return legacy_address(
             public_key.encode(compressed=True) if compressed else public_key,
-            version_byte=get_network_attr('keyhash', public_key.network))
+            version_byte=get_network_attr('keyhash', public_key.network)
+        )
 
     @staticmethod
-    def from_p2wpkh_p2sh(public_key: PublicKey) -> 'str':
+    def to_p2wpkh_p2sh(public_key: PublicKey) -> 'str':
         return legacy_address(
             witness_byte(witver=0) + push(hash160(public_key.encode(compressed=True))),
             version_byte=get_network_attr('scripthash', public_key.network)
         )
 
     @staticmethod
-    def from_p2wpkh(public_key: PublicKey) -> 'str':
+    def to_p2wpkh(public_key: PublicKey) -> 'str':
         return pubkey_to_bech32(public_key, witver=0x00)
 
     @staticmethod
     def from_public_key(public_key: PublicKey, version='P2PKH', compressed=False) -> 'str':
         key_to_addr_versions = {
-            AddressType.P2PKH: Address.from_p2pkh,
-            AddressType.P2WPKH_P2SH: Address.from_p2wpkh_p2sh,
-            AddressType.P2WPKH: Address.from_p2wpkh
+            AddressType.P2PKH: Address.to_p2pkh,
+            AddressType.P2WPKH_P2SH: Address.to_p2wpkh_p2sh,
+            AddressType.P2WPKH: Address.to_p2wpkh
         }
 
         if version == AddressType.P2PKH.value:
