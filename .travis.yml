@@ -3,3 +3,11 @@ python:
   - '3.6'
 install: pip install -r requirements.txt
 script: python3 -m unittest
+deploy:
+  provider: pypi
+  user: "professormahi_f"
+  password:
+    secure: LVFMEZhM2Puv14EI9PF10scI0DZSZvjbgwf1wftx7vIbuQH7oNAkjtWIBr9xizLL4w4gJfJVMvdi7hHt/fSdANAtZoWhNYP80G1eKTFIEuOLx7yhRmbsoZExOiPiyWjynX2maFKv09KMh3N1gl83sftyoowoVI+yk6/MSnJgpauLMMSq3eeNQZo4rPKjHD9XLwYgwbumuTlTJFT4mTRks6h7tBFmJZzPZ+IQrg6kOuaQ1NDGPRgrFSep16UZBck0Cr4a//sAt4dY+p/joG2pSwlOz8H8zfhE7EVcDMTCu576aQLZVUJRW5SBadx5VSKp/FNJhkOHt6F0xO9FA16Uc3QNieeSuaFp1pNpqi1GJAdCoZYu91eRZ6vzEM8oAejZuvd+3wphYUYX1+me/MNrFIH/H5yf3lKohF2VZeiNMm0GQXDwzDMV5KmxNvtDCoHYte/t2NeXjgzOYUpFw79e6c4KZtpAaI231CUUTdbO8mw91q8KJnb9b7W8emqCKWRHaH0cXmzIEXO/4C3m3JD/3HJq5Rv2yyvU/T3VEmCzcE1OQtfQh1AyA94ZS2BERU6DS9WiqCyz4QKU0OqrRlVXz6Yf8I4arnkBSd8fOcLCyDJ9QNUSQoCSp7q68d9/A2nTl40qd5znpKVeAYrrbxo1MOrFo/jTzB3SlX/m8vdE9ts=
+  distributions: "sdist bdist_wheel"
+  on:
+    tags: true
